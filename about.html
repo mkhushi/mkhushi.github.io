@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About – Matloob Khushi & MatFinProtocol</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #050b18;
+      --accent: #5ef2c5;
+      --text-main: #f4f5fb;
+      --text-muted: #a1a4c0;
+      --card: rgba(11, 20, 40, 0.9);
+      --border-soft: rgba(255, 255, 255, 0.05);
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                   "Segoe UI", Roboto, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top left, #181c3a 0%, var(--bg) 45%, #02030a 100%);
+      color: var(--text-main);
+      min-height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1.25rem 3rem;
+    }
+
+    .shell {
+      width: 100%;
+      max-width: 900px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    header {
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: linear-gradient(120deg, rgba(94, 242, 197, 0.22), rgba(0,0,0,0));
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(94, 242, 197, 0.7);
+    }
+
+    h1 {
+      font-size: clamp(1.6rem, 3vw, 2rem);
+      margin: 0.4rem 0 0.3rem;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      line-height: 1.5;
+    }
+
+    main {
+      margin-top: 1.1rem;
+      background: var(--bg-alt);
+      border-radius: 20px;
+      border: 1px solid var(--border-soft);
+      padding: 1.5rem 1.4rem 1.7rem;
+      box-shadow:
+        0 26px 60px rgba(0, 0, 0, 0.85),
+        0 0 0 1px rgba(255, 255, 255, 0.01);
+      backdrop-filter: blur(26px);
+    }
+
+    section + section {
+      margin-top: 1.1rem;
+      padding-top: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    h2 {
+      font-size: 1rem;
+      margin: 0 0 0.4rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    p {
+      margin: 0 0 0.6rem;
+      font-size: 0.95rem;
+      line-height: 1.65;
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .list-inline {
+      margin: 0.25rem 0 0.5rem;
+      padding-left: 1.1rem;
+    }
+
+    .list-inline li {
+      margin-bottom: 0.25rem;
+      font-size: 0.93rem;
+    }
+
+    .contact-card {
+      margin-top: 0.4rem;
+      padding: 0.7rem 0.8rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-soft);
+      background: rgba(255, 255, 255, 0.02);
+      font-size: 0.9rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.85rem;
+      margin-bottom: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <a class="back-link" href="./">
+      ← Back to leaderboard
+    </a>
+
+    <header>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        About the maintainer
+      </div>
+      <h1>About Dr&nbsp;Matloob Khushi &amp; MatFinProtocol</h1>
+      <p class="subtitle">
+        This site is maintained as a neutral, protocol‑driven leaderboard for AI‑based
+        financial forecasting and trading studies that satisfy the MatFinProtocol standard.
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Who am I?</h2>
+        <p>
+          I am <span class="highlight">Dr&nbsp;Matloob Khushi</span>, Associate Professor and Senior Lecturer 
+          in Artificial Intelligence at Brunel University London, and Deputy Director of the Doctoral Programme 
+          in the Department of Computer Science. I hold a PhD in Bioinformatics and Data Science from the 
+          University of Sydney, and my work has been recognised among the world’s top 2% of scientists 
+          (Stanford list, 2024/2025) with over 4,000 citations across AI, finance and computational biology.
+        </p>
+        <p>
+          My research spans <span class="highlight">AI in financial markets</span> (algorithmic trading, 
+          stock prediction, risk‑adjusted optimisation), <span class="highlight">bioinformatics and 
+          computational biology</span> (genomic interactions, diagnostics, drug discovery), and 
+          <span class="highlight">natural language processing</span>. I regularly publish in venues such as 
+          IEEE Transactions and PeerJ, and I create educational content on AI and financial markets across 
+          TikTok, YouTube and podcast platforms.
+        </p>
+      </section>
+
+      <section>
+        <h2>What do I research?</h2>
+        <p>
+          On the finance side, my group focuses on turning machine‑learning predictions into deployable, 
+          risk‑controlled trading strategies. This includes:
+        </p>
+        <ul class="list-inline">
+          <li>Designing and stress‑testing AI models for equity, FX, crypto and multi‑asset trading.</li>
+          <li>Developing risk‑adjusted performance measures (e.g. the <span class="highlight">SS Ratio</span>) that jointly account for volatility and drawdowns.</li>
+          <li>Formalising anti‑leakage, backtesting and reporting standards for financial ML — the core of <span class="highlight">MatFinProtocol</span>.</li>
+        </ul>
+        <p>
+          In bioinformatics and medical AI, I work on predictive models for genomic interactions and clinical outcomes,
+          with an emphasis on reproducibility and rigorous evaluation — the same mindset that underpins this leaderboard.
+        </p>
+      </section>
+
+      <section>
+        <h2>Who manages this page?</h2>
+        <p>
+          This leaderboard is curated by <span class="highlight">Dr&nbsp;Matloob Khushi</span> and collaborators,
+          and is intended as a living, protocol‑compliant register of AI‑based financial forecasting and trading studies.
+          Only backtests that meet the <a href="./">MatFinProtocol</a> criteria (no data leakage, realistic costs,
+          fully specified trading rules, and comprehensive risk reporting) are included.
+        </p>
+        <p>
+          The goal is not to “pick winners” in a vacuum, but to provide a transparent, comparable view of what
+          has actually been demonstrated in the literature under consistent assumptions, so that researchers,
+          practitioners and investors can make informed decisions.
+        </p>
+      </section>
+
+      <section>
+        <h2>Contact &amp; reporting errors</h2>
+        <p>
+          If you spot any errors or omissions, or if you would like to suggest a new protocol‑compliant study
+          to add to the leaderboard, please get in touch. I welcome high‑quality contributions and critical
+          feedback from both academia and industry.
+        </p>
+        <div class="contact-card">
+          <p><strong>Contact:</strong></p>
+          <p>
+            Dr&nbsp;Matloob Khushi<br />
+            Associate Professor in Artificial Intelligence, Brunel University London<br />
+            Email: <a href="mailto:matloob.khushi@brunel.ac.uk">matloob.khushi@brunel.ac.uk</a>
+          </p>
+          <p>
+            When suggesting a new study, please include the reference, a link to the paper/code, 
+            and enough detail to verify that the backtest satisfies MatFinProtocol 
+            (data handling, splitting, feature construction, costs, and risk metrics).
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
