@@ -1,3 +1,11 @@
+Here is a minimally edited version of your previous `index.html` with:
+
+- A small top navigation linking to `about.html`.
+- A clearer “Maintained by…” line in the toolbar pointing to `about.html`.
+
+You can replace your existing `index.html` with this version (the leaderboard logic is unchanged).
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,6 +52,23 @@
     .shell {
       width: 100%;
       max-width: 1200px;
+    }
+
+    /* Simple top nav */
+    .top-nav {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .top-nav a {
+      color: var(--accent);
+      text-decoration: none;
+      margin-left: 0.75rem;
+    }
+    .top-nav a:hover {
+      text-decoration: underline;
     }
 
     header {
@@ -141,7 +166,7 @@
     .toolbar-left {
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
+      gap: 0.25rem;
     }
 
     .toolbar-title {
@@ -153,7 +178,7 @@
     }
 
     .toolbar-caption {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--text-muted);
     }
 
@@ -292,6 +317,7 @@
 
     .footer-note strong {
       color: var(--accent);
+      font-weight: 500;
     }
 
     a {
@@ -306,12 +332,19 @@
 </head>
 <body>
   <div class="shell">
+
+    <!-- Top navigation with About link -->
+    <nav class="top-nav">
+      <span>MatFinProtocol</span>
+      <a href="about.html">About &amp; contact</a>
+    </nav>
+
     <header>
       <div class="badge">
         <span class="badge-dot"></span>
         MatFinProtocol • Live backtest leaderboard
       </div>
-      <h1>Financial Asset Forecasting & Trading Leaderboard</h1>
+      <h1>Financial Asset Forecasting &amp; Trading Leaderboard</h1>
       <p class="subheadline">
         Protocol‑compliant backtests evaluated under consistent, cost‑aware conditions. 
         Each row corresponds to a published or reproducible AI‑based strategy benchmarked under MatFinProtocol.
@@ -328,7 +361,10 @@
         <div class="toolbar-left">
           <div class="toolbar-title">
             MatFinProtocol Leaderboard
-            <span class="toolbar-caption">Click column headers to sort · Type to filter by reference/model</span>
+          </div>
+          <div class="toolbar-caption">
+            Click column headers to sort · Type to filter · Maintained by Dr&nbsp;Matloob&nbsp;Khushi –
+            <a href="about.html">about &amp; contact</a>
           </div>
         </div>
         <div class="toolbar-right">
@@ -467,3 +503,4 @@
   </script>
 </body>
 </html>
+```
