@@ -1,115 +1,497 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <title>MatFinProtocol Leaderboard – Financial AI Backtests</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #050b18;
+      --accent: #5ef2c5;
+      --accent-soft: rgba(94, 242, 197, 0.14);
+      --text-main: #f4f5fb;
+      --text-muted: #a1a4c0;
+      --card: rgba(11, 20, 40, 0.88);
+      --border-soft: rgba(255, 255, 255, 0.04);
+      --danger: #ff6b81;
+      --success: #66e0a3;
+      --warning: #ffd66b;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+                   "Segoe UI", Roboto, sans-serif;
+    }
 
-	<title>Dr. Matloob Khushi</title>
-	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    * {
+      box-sizing: border-box;
+    }
 
-	<meta name="keywords" content="" />
-	<meta name="description" content="" />
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: var(--font-sans);
+      background: radial-gradient(circle at top left, #181c3a 0%, var(--bg) 45%, #02030a 100%);
+      color: var(--text-main);
+      min-height: 100%;
+    }
 
-	
-	<link rel="stylesheet" type="text/css" href="resume.css" media="all" />
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2.5rem 1.25rem 3rem;
+    }
 
+    .shell {
+      width: 100%;
+      max-width: 1200px;
+    }
+
+    /* Simple top nav */
+    .top-nav {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .top-nav a {
+      color: var(--accent);
+      text-decoration: none;
+      margin-left: 0.75rem;
+    }
+    .top-nav a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      margin-bottom: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: linear-gradient(120deg, rgba(94, 242, 197, 0.22), rgba(0,0,0,0));
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(94, 242, 197, 0.7);
+    }
+
+    h1 {
+      font-size: clamp(1.7rem, 3vw, 2.1rem);
+      margin: 0.25rem 0 0.1rem;
+      letter-spacing: 0.02em;
+    }
+
+    .subheadline {
+      margin: 0;
+      font-size: 0.95rem;
+      max-width: 720px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
+    }
+
+    .pill {
+      padding: 0.22rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      border: 1px solid var(--border-soft);
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .pill strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    main {
+      background: radial-gradient(circle at top, rgba(94, 242, 197, 0.16), transparent 55%),
+                  radial-gradient(circle at bottom right, rgba(160, 131, 255, 0.2), transparent 60%),
+                  var(--bg-alt);
+      border-radius: 20px;
+      border: 1px solid var(--border-soft);
+      padding: 1.4rem 1.1rem 1.5rem;
+      box-shadow:
+        0 26px 60px rgba(0, 0, 0, 0.85),
+        0 0 0 1px rgba(255, 255, 255, 0.01);
+      backdrop-filter: blur(24px);
+    }
+
+    @media (min-width: 768px) {
+      main {
+        padding: 1.5rem 1.7rem 1.7rem;
+      }
+    }
+
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+
+    .toolbar-left {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .toolbar-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+    }
+
+    .toolbar-caption {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    .toolbar-right {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-input {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      background: rgba(6, 10, 24, 0.9);
+      color: var(--text-main);
+      font-size: 0.8rem;
+      min-width: 180px;
+    }
+
+    .search-input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      padding: 0.22rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.01);
+    }
+
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      background: rgba(5, 8, 22, 0.95);
+      scrollbar-width: thin;
+    }
+
+    .table-wrap::-webkit-scrollbar {
+      height: 6px;
+    }
+    .table-wrap::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.14);
+      border-radius: 999px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.82rem;
+    }
+
+    thead {
+      background: linear-gradient(90deg, rgba(94, 242, 197, 0.1), rgba(7, 13, 30, 0.95));
+    }
+
+    th, td {
+      padding: 0.45rem 0.6rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+      white-space: nowrap;
+    }
+
+    th {
+      text-align: left;
+      font-weight: 500;
+      color: var(--text-muted);
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: inherit;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    th.sortable:hover {
+      color: var(--accent);
+    }
+
+    th .sort-indicator {
+      margin-left: 0.28rem;
+      font-size: 0.7rem;
+      opacity: 0.65;
+    }
+
+    tbody tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.01);
+    }
+
+    tbody tr:hover {
+      background: rgba(94, 242, 197, 0.06);
+    }
+
+    td {
+      color: var(--text-main);
+    }
+
+    td.ref {
+      max-width: 260px;
+      white-space: normal;
+    }
+
+    .metric-good {
+      color: var(--success);
+      font-weight: 500;
+    }
+
+    .metric-bad {
+      color: var(--danger);
+      font-weight: 500;
+    }
+
+    .metric-neutral {
+      color: var(--warning);
+      font-weight: 500;
+    }
+
+    .tag-model {
+      font-size: 0.72rem;
+      padding: 0.14rem 0.5rem;
+      border-radius: 999px;
+      background: rgba(94, 242, 197, 0.13);
+      border: 1px solid rgba(94, 242, 197, 0.45);
+      color: var(--accent);
+    }
+
+    .footer-note {
+      margin-top: 0.8rem;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .footer-note strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
+  <div class="shell">
 
-<div id="doc2" class="yui-t7">
-	<div id="inner">
-	
-		<div id="hd">
-			<div class="yui-gc">
-				<div class="yui-u first">
-					<h1>Dr. Matloob Khushi</h1>
-					<h2>Director of Data Science Programmes at The University of Sydney</h2>
-				</div>
+    <!-- Top navigation with About link -->
+    <nav class="top-nav">
+      <span>MatFinProtocol</span>
+      <a href="about.html">About &amp; contact</a>
+    </nav>
 
-				<div class="yui-u">
-					<div class="contact-info">
-						<h3><a href="mailto:matloob.khushi@sydney.edu.au">matloob.khushi@sydney.edu.au</a></h3>
-						<h3>(xxx) - xxxx-xxx</h3>
-					</div><!--// .contact-info -->
-				</div>
-			</div><!--// .yui-gc -->
-		</div><!--// hd -->
+    <header>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        MatFinProtocol • Live backtest leaderboard
+      </div>
+      <h1>Financial Asset Forecasting &amp; Trading Leaderboard</h1>
+      <p class="subheadline">
+        Protocol‑compliant backtests evaluated under consistent, cost‑aware conditions. 
+        Each row corresponds to a published or reproducible AI‑based strategy benchmarked under MatFinProtocol.
+      </p>
+      <div class="pill-row">
+        <span class="pill"><strong>Higher is better</strong>: Annualised profit, Sharpe</span>
+        <span class="pill"><strong>Lower is better</strong>: Max drawdown %</span>
+        <span class="pill">All strategies net of costs &amp; slippage (per protocol)</span>
+      </div>
+    </header>
 
-		<div id="bd">
-			<div id="yui-main">
-				<div class="yui-b">
-					<div class="yui-gf">
-					<h2>Important Projects with Code</h2>
-						<div class="yui-u first">
-							<h3>Feature Learning for Stock Price Prediction Shows a Significant Role of Analyst Rating</h3>
-							Citation: Jaideep Singh and Matloob Khushi. Feature Learning for Stock Price Prediction Shows a Significant Role of Analyst Rating. ASI
-							<h3><a id="pdf" href="https://github.com/sjdee/Research-Stock-Prediction">Download Code</a>
-						</div>
-					</div>
-					<div class="yui-gf">
-						<div class="yui-u first">
-							
-							<h3>Wavelet Denoised-ResNet CNN and LightGBM Method to Predict Forex Rate of Change</h3>
-						</div>
-						<div class="yui-u">
-									Citation: Zhao Y and Khushi M. Wavelet Denoised-ResNet CNN and LightGBM Method to Predict Forex Rate of Change. In 2020 IEEE International Conference on Data Mining Workshops (ICDW 2020)
-								<h3><a id="pdf" href="https://github.com/mkhushi/code-with-paper/tree/main/Forex%20Price%20Prediction%20by%20Wavelet%20Denoised-ResNet%20CNN%20and%20LightGBM">Download Code</a></h3>
-							
-						</div>
-						
-					</div><!--// .yui-gf -->
-					<div class="yui-gf">
-						
-							<div class="yui-u first">
-								<h3>Text Mining of Stocktwits Data for Predicting Stock Prices</h3>
-								<div class="yui-u">
-									Citation: Jaggi, M.; Mandal, P.; Narang, S.; Naseem, U.; Khushi, M. Text Mining of Stocktwits Data for Predicting Stock Prices. Appl. Syst. Innov. 2021, 4, 13. <a href="https://doi.org/10.3390/asi4010013">https://doi.org/10.3390/asi4010013</a>
-								</div>
-								<h3><a id="pdf" href="https://github.com/mjag7682/NLP-of-StockTwits-data-for-predicting-stocks">Download Code</a></h3>
-								
-							</div>
-						
-					</div><!--// .yui-gf -->
-					<div class="yui-gf">
-						<div class="yui-u first">
-							<h3>SMOTE-ENC: A novel SMOTE-based method to generate syn-thetic data for nominal and continuous features</h3>
-						</div>
-						<div class="yui-u">
-							<p>
-								Classification algorithms are meant to discover the underlying pattern of training data which can then be used to predict the outcome of unseen data. Hence, it is essential to have substantial amount of training data to build an efficient classification model. How-ever, in many discipline, real-world datasets are heavily skewed and some classes are significantly outnumbered by the other classes. In these situations, classification algo-rithms fail to achieve substantial efficacy while predicting these under-represented in-stances. To solve this problem, many variations of synthetic minority over-sampling methods (SMOTE) have been proposed to balance the dataset which deals with continu-ous features. However, for datasets with both nominal and continuous features, SMOTE-NC is the only SMOTE-based over-sampling technique to balance the data. In this paper, we present a new minority over-sampling method, SMOTE-ENC (SMOTE – En-coded Nominal and Continuous), in which, nominal features are encoded as numeric values and difference between two such numeric value reflects the amount of change of association with minority class. For minority class observations, experiments on 6 da-tasets show that, SMOTE-ENC method offers better prediction than SMOTE-NC. Also, this proposed method overcomes one of the major limitations of SMOTE-NC algorithm. SMOTE-NC can be applied only on mixed datasets (i.e., data with both continuous and nominal feature) and cannot function if all the features of the dataset are nominal. The new SMOTE-ENC algorithm has been generalized to be applied on both mixed dataset and on nominal only datasets.
-								<p>
-									Citation: SMOTE-ENC: A novel SMOTE-based method to generate syn-thetic data for nominal and continuous features
-								</p>
-								<h3><a id="pdf" href="https://github.com/Mimimkh/SMOTE-ENC-code">Download Code</a>
-								<!-- <a id="pdf" href="https://github.com/Mimimkh/SMOTE-ENC-code">Download Code</a> -->
-								</h3>
-							</p>
-						</div>
-					</div><!--// .yui-gf -->
-				</div>
-			</div><!--// .yui-gf -->
+    <main>
+      <div class="toolbar">
+        <div class="toolbar-left">
+          <div class="toolbar-title">
+            MatFinProtocol Leaderboard
+          </div>
+          <div class="toolbar-caption">
+            Click column headers to sort · Type to filter · Maintained by Dr&nbsp;Matloob&nbsp;Khushi –
+            <a href="about.html">about &amp; contact</a>
+          </div>
+        </div>
+        <div class="toolbar-right">
+          <input id="searchBox" class="search-input" type="text" placeholder="Filter by reference or model…" />
+          <span class="tag">Last updated: <!-- manually edit -->2026‑03‑08</span>
+        </div>
+      </div>
 
-					
-						
-							<h2>The University of Sydney </h2>
-							<h3>Director of Data Science <strong>@</strong> </h3>
-						</div>
-					</div><!--// .yui-gf -->
+      <div class="table-wrap">
+        <table id="leaderboard">
+          <thead>
+            <tr>
+              <th class="sortable" data-type="text">Reference <span class="sort-indicator">⇅</span></th>
+              <th class="sortable" data-type="num">Initial balance<span class="sort-indicator">⇅</span></th>
+              <th class="sortable" data-type="num">Final balance<span class="sort-indicator">⇅</span></th>
+              <th class="sortable" data-type="num">% annualised profit<span class="sort-indicator">⇅</span></th>
+              <th class="sortable" data-type="num">% max drawdown<span class="sort-indicator">⇅</span></th>
+              <th class="sortable" data-type="num">Sharpe ratio<span class="sort-indicator">⇅</span></th>
+              <th class="sortable" data-type="text">Backtest period<span class="sort-indicator">⇅</span></th>
+              <th class="sortable" data-type="num">Total trades<span class="sort-indicator">⇅</span></th>
+              <th class="sortable" data-type="num">Win rate %<span class="sort-indicator">⇅</span></th>
+              <th class="sortable" data-type="text">Model / notes<span class="sort-indicator">⇅</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- EXAMPLE ROWS – edit / duplicate these for new papers -->
+            <tr>
+              <td class="ref">
+                Khushi (2026), “MatFinProtocol: Minimum Reporting and Evaluation Standards…”
+              </td>
+              <td>100,000</td>
+              <td>153,400</td>
+              <td class="metric-good">+9.8</td>
+              <td class="metric-good">‑12.3</td>
+              <td class="metric-good">1.45</td>
+              <td>2016‑01‑01 → 2024‑12‑31</td>
+              <td>4,120</td>
+              <td>57.2</td>
+              <td><span class="tag-model">Reference protocol strategy</span></td>
+            </tr>
 
+            <tr>
+              <td class="ref">
+                Zhang &amp; Khushi (2020), “GA‑MSSR: Genetic Algorithm Maximizing Sharpe and Sterling Ratio…”
+              </td>
+              <td>100,000</td>
+              <td>187,900</td>
+              <td class="metric-good">+13.4</td>
+              <td class="metric-neutral">‑19.7</td>
+              <td class="metric-good">1.68</td>
+              <td>2010‑01‑01 → 2019‑12‑31</td>
+              <td>2,305</td>
+              <td>61.0</td>
+              <td><span class="tag-model">SS Ratio‑optimised GA</span></td>
+            </tr>
 
-				</div><!--// .yui-b -->
-			</div><!--// yui-main -->
-		</div><!--// bd -->
+            <!-- Add new rows below this line as you evaluate more papers -->
+          </tbody>
+        </table>
+      </div>
 
-		<div id="ft">
-			<p>Dr. Matloob Khushi <a href="mailto:name@yourdomain.com">name@yourdomain.com</a>  (xxx) - xxxx</p>
-		</div><!--// footer -->
+      <p class="footer-note">
+        Only studies that satisfy <strong>MatFinProtocol</strong> (no leakage, cost‑aware backtesting, full risk reporting) 
+        are eligible for inclusion. Values are harmonised to a common reporting schema to support investor‑relevant comparison.
+      </p>
+    </main>
+  </div>
 
-	</div><!-- // inner -->
+  <script>
+    // Simple column sorting
+    (function () {
+      const table = document.getElementById("leaderboard");
+      const headers = table.querySelectorAll("th.sortable");
+      let sortState = { index: null, asc: true };
 
+      function parseCell(text, type) {
+        if (type === "num") {
+          if (!text) return NaN;
+          const cleaned = text.replace(/[,()%+]/g, "").trim();
+          const val = parseFloat(cleaned);
+          return isNaN(val) ? NaN : val;
+        }
+        return text.toLowerCase();
+      }
 
-</div><!--// doc -->
+      function sortByColumn(index, type) {
+        const tbody = table.querySelector("tbody");
+        const rows = Array.from(tbody.querySelectorAll("tr"));
+        const asc = sortState.index === index ? !sortState.asc : true;
+        sortState = { index, asc };
 
+        rows.sort((a, b) => {
+          const aText = a.children[index].textContent.trim();
+          const bText = b.children[index].textContent.trim();
+          const aVal = parseCell(aText, type);
+          const bVal = parseCell(bText, type);
 
+          if (type === "num") {
+            if (isNaN(aVal) && isNaN(bVal)) return 0;
+            if (isNaN(aVal)) return 1;
+            if (isNaN(bVal)) return -1;
+            return asc ? aVal - bVal : bVal - aVal;
+          } else {
+            if (aVal < bVal) return asc ? -1 : 1;
+            if (aVal > bVal) return asc ? 1 : -1;
+            return 0;
+          }
+        });
+
+        rows.forEach(r => tbody.appendChild(r));
+      }
+
+      headers.forEach((th, index) => {
+        th.addEventListener("click", () => {
+          const type = th.getAttribute("data-type") || "text";
+          sortByColumn(index, type);
+        });
+      });
+    })();
+
+    // Simple text filter on reference + model/notes
+    (function () {
+      const input = document.getElementById("searchBox");
+      const table = document.getElementById("leaderboard");
+      const rows = table.querySelectorAll("tbody tr");
+
+      input.addEventListener("input", () => {
+        const q = input.value.toLowerCase();
+        rows.forEach(row => {
+          const ref = row.querySelector("td.ref")?.textContent.toLowerCase() || "";
+          const model = row.lastElementChild?.textContent.toLowerCase() || "";
+          row.style.display = (ref.includes(q) || model.includes(q)) ? "" : "none";
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
-
-https://mkhushi.github.io/
