@@ -370,6 +370,7 @@
           <thead>
             <tr>
               <th class="sortable" data-type="text">Reference <span class="sort-indicator">⇅</span></th>
+              <th class="sortable" data-type="num">Asset<span class="sort-indicator">⇅</span></th>
               <th class="sortable" data-type="num">Initial balance<span class="sort-indicator">⇅</span></th>
               <th class="sortable" data-type="num">Final balance<span class="sort-indicator">⇅</span></th>
               <th class="sortable" data-type="num">% annualised profit<span class="sort-indicator">⇅</span></th>
@@ -383,25 +384,43 @@
           </thead>
           <tbody>
             <!-- EXAMPLE ROWS – edit / duplicate these for new papers -->
-            <tr>
-              <td class="ref">
-                Khushi (2026), “MatFinProtocol: Minimum Reporting and Evaluation Standards…”
-              </td>
-              <td>100,000</td>
-              <td>153,400</td>
-              <td class="metric-good">+9.8</td>
-              <td class="metric-good">‑12.3</td>
-              <td class="metric-good">1.45</td>
-              <td>2016‑01‑01 → 2024‑12‑31</td>
-              <td>4,120</td>
-              <td>57.2</td>
-              <td><span class="tag-model">Reference protocol strategy</span></td>
-            </tr>
+
+<tr>
+  <td class="sortable" data-type="text">López-Herrera, et al. (2025) DOI: 10.1007/s44163-025-00424-4 </td>
+  <td class="sortable" data-type="num">USD vs EUR, CNY, JPY, AUD, CHF, MXN, ZAR, and TRY</td>
+  <td class="sortable" data-type="num">Not given</td>
+  <td class="sortable" data-type="num">Not given</td>
+  <td class="sortable" data-type="num">31.1% (TRY/USD Max) </td>
+  <td class="sortable" data-type="num">Near-Zero</td>
+  <td class="sortable" data-type="num">3.38 (Median Bootstrap) </td>
+  <td class="sortable" data-type="text">2018–2023</td>
+  <td class="sortable" data-type="num">35 (Avg per period)</td>
+  <td class="sortable" data-type="num">71.1% </td>
+  <td class="sortable" data-type="text">Logistic Regression with Mean Absolute Directional Loss (MADL) optimization</td>
+</tr>
+
+
+<tr>
+  <td class="sortable" data-type="text">Iswara et al. (2025)DOI: 10.1109/ISCT66099.2025.11297372</td>
+  <td class="sortable" data-type="num">XAU/USD</td>
+  <td class="sortable" data-type="num">Not given</td>
+  <td class="sortable" data-type="num">(Net Profit: +$1.53)</td>
+  <td class="sortable" data-type="num">Not given</td>
+  <td class="sortable" data-type="num">$0.41</td>
+  <td class="sortable" data-type="text">Not given</td>
+  <td class="sortable" data-type="num">4 to 5 hours</td>
+  <td class="sortable" data-type="num">26</td>
+  <td class="sortable" data-type="text">57.69%</td>
+  <td>LSTM + Inductive Conformal Prediction (ICP) uncertainty filter</td>
+</tr>
+
+
 
             <tr>
               <td class="ref">
                 Zhang &amp; Khushi (2020), “GA‑MSSR: Genetic Algorithm Maximizing Sharpe and Sterling Ratio…”
               </td>
+              <td>EUR/USD</td>
               <td>100,000</td>
               <td>187,900</td>
               <td class="metric-good">+13.4</td>
