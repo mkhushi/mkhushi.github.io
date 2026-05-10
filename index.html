@@ -362,7 +362,7 @@
         </div>
         <div class="toolbar-right">
         <p class="toolbar-caption">
-This leaderboard lists manually scanned Scopus‑indexed "forex prediction" studies published in 2025 that are MatFinProtocol‑compliant and backtesting performed.
+This leaderboard lists manually scanned published papers where backtesting results are given and the work is loosely MatFinProtocol‑compliant. As the list get matured only fully compliant papers will be kept.
 To propose an additional compliant paper for inclusion, please email the full reference and backtest details to: matloob.khushi@brunel.ac.uk.</p>
           <input id="searchBox" class="search-input" type="text" placeholder="Filter by reference or model…" />
           <span class="tag">Last updated: <!-- manually edit -->2026‑04‑01</span>
@@ -390,123 +390,9 @@ To propose an additional compliant paper for inclusion, please email the full re
             <!-- EXAMPLE ROWS – edit / duplicate these for new papers -->
 
 
-<tr>
-  <td>Arabha, Sarani &amp; Rashidi-Khazaee (2024). arXiv:2411.01456</td>
-  <td>EUR/USD</td>
-  <td>Not given</td>
-  <td>Not given</td>
-  <td>42.22% (DS2 OOS, 7 months)</td>
-  <td>Not given</td>
-  <td>0.47 (DS2 OOS)</td>
-  <td>DS1: Jan–Jul 2017; DS2: Jan–Jul 2023</td>
-  <td>Not given</td>
-  <td>Not given</td>
-  <td>PPO + Auxiliary Task (PPO+AXT); LSTM Actor-Critic; DRL with OHLC + auto-encoder features; qualitative cost mention only; no slippage stated; short OOS windows (7 months each)</td>
-</tr>
 
-<!-- ── EQUITIES / INDICES ──────────────────────────────────── -->
 
-<tr>
-  <td>Pillai, Ajith &amp; Sumesh K J (2026). arXiv:2601.19504. Proc. ComSIA 2026 (Springer LNNS)</td>
-  <td>S&amp;P 500 (100 stocks)</td>
-  <td>$100,000</td>
-  <td>$235,492.83</td>
-  <td>53.46% CAGR</td>
-  <td>15.60%</td>
-  <td>1.68</td>
-  <td>Jan 2023 – Jan 2025 (2 years OOS)</td>
-  <td>Not given</td>
-  <td>61.5%</td>
-  <td>Hybrid XGBoost + FinBERT sentiment + EMA/MACD/RSI regime filter; Backtrader simulation; 70/30 train/test split; no transaction costs stated; long-only daily; look-ahead risk low (pre-market news only)</td>
-</tr>
-
-<tr>
-  <td>Nyo et al. (2026). arXiv:2603.15848. Singapore Institute of Technology</td>
-  <td>S&amp;P 500 (equities)</td>
-  <td>$100,000</td>
-  <td>Not given</td>
-  <td>Not given (189.10% total return on validation 2018–2024)</td>
-  <td>23.50% (validation)</td>
-  <td>2.04 (validation); 2.07 (test)</td>
-  <td>Dev: 2000–2017; Validation: 2018–2024; held-out test set</td>
-  <td>Not given</td>
-  <td>38.50% (validation)</td>
-  <td>Enhanced momentum + FinBERT sentiment strategy; EMA50/200, MA200, ATR14 trailing stop, top-10 cross-sectional momentum ranking; strict 3-way train/val/test split; no transaction costs stated; student project paper – treat with caution</td>
-</tr>
-
-<tr>
-  <td>Saly-Kaufmann, Wood, Peter-Calliess &amp; Zohren (2026). arXiv:2603.01820. University of Oxford</td>
-  <td>Multi-asset futures &amp; FX (bonds, commodities, energy, equity indices, FX – 60+ instruments)</td>
-  <td>Not given</td>
-  <td>Not given</td>
-  <td>26.32% CAGR (VLSTM, best model)</td>
-  <td>22.90% (VLSTM)</td>
-  <td>2.40 (VLSTM, 2010–2025)</td>
-  <td>2010–2025 (15 years, rolling OOS)</td>
-  <td>Not given (turnover: ~967 ann.)</td>
-  <td>58.8% hit rate (VLSTM)</td>
-  <td>Large-scale benchmark of 16 DL architectures (VLSTM, TFT, xLSTM, LPatchTST, etc.); Sharpe-ratio optimisation objective; rolling window OOS evaluation; gross returns (c=0) with post-hoc breakeven cost analysis per asset; statistically significant vs. passive (HAC t=8.81); Oxford-Man Institute</td>
-</tr>
-
-<tr>
-  <td>Azevedo, Hoegner &amp; Velikov (2024). SSRN:4702406</td>
-  <td>US equities (stock anomaly long-short)</td>
-  <td>Not given</td>
-  <td>Not given</td>
-  <td>Not given</td>
-  <td>Not given</td>
-  <td>0.84 net (LSTM, 1 hidden layer)</td>
-  <td>Not given (post-2000 implied)</td>
-  <td>Not given</td>
-  <td>Not given</td>
-  <td>LSTM anomaly-based long-short; quantifies joint impact of transaction costs, post-publication decay, and post-decimalization era; 57% cumulative performance reduction; net Sharpe 0.84 after all frictions; costs explicitly modelled; recession/expansion heterogeneity analysed</td>
-</tr>
-
-<!-- ── CRYPTOCURRENCY ──────────────────────────────────────── -->
-
-<tr>
-  <td>Nguyen (2026). arXiv:2602.11708</td>
-  <td>Crypto perpetual swaps (150+ pairs, Binance Futures; top 20 by market cap)</td>
-  <td>Not given</td>
-  <td>Not given</td>
-  <td>40.5% annualised (70/30 long-short)</td>
-  <td>12.70%</td>
-  <td>2.41</td>
-  <td>Jan 2022 – Dec 2024 (OOS, 36 months; in-sample Jan–Dec 2021)</td>
-  <td>~142 trades/month portfolio-wide</td>
-  <td>54.2% (bull regime); overall not stated</td>
-  <td>AdaptiveTrend: 6-hour momentum + dynamic trailing stop + monthly Sharpe-based asset selection + 70/30 asymmetric long-short; transaction costs modelled at 4 bps taker fee + slippage + funding; Sharpe 2.41 retained above 2.0 at 8 bps; strict OOS separation; bootstrap significance tests</td>
-</tr>
-
-<tr>
-  <td>Zarattini, Pagani &amp; Barbon (2025). SSRN:5209907</td>
-  <td>Crypto (Bitcoin + top-20 liquid altcoin rotation)</td>
-  <td>Not given</td>
-  <td>Not given</td>
-  <td>+10.8% annualised alpha vs. BTC</td>
-  <td>Not given</td>
-  <td>&gt;1.5</td>
-  <td>2015 onwards (exact end date not stated)</td>
-  <td>Not given</td>
-  <td>Not given</td>
-  <td>Ensemble Donchian channel trend models (multi-lookback) + volatility position sizing; rotational portfolio; net-of-fees returns; transaction cost impact assessed; limited metric disclosure in abstract – backtest period endpoints not fully stated</td>
-</tr>
-
-<tr>
-  <td>Aldan Jay &amp; Berlanga (2024). SSRN:4987237</td>
-  <td>Cryptocurrency (BTC / crypto market, technical analysis)</td>
-  <td>Not given</td>
-  <td>Not given</td>
-  <td>Not given (annualised return reported per model)</td>
-  <td>Reported (model-specific)</td>
-  <td>Reported per model (DQN best for profit; LSTM best for consistency; RF best for drawdown control)</td>
-  <td>Not explicitly stated</td>
-  <td>Not given</td>
-  <td>Not given</td>
-  <td>Benchmarks DQN, LSTM, RF agents on crypto TA indicators; evaluated on Total Return, Ann. Return, Ann. Volatility, Sharpe, Sortino, Max Drawdown, Calmar; systematic backtesting; no single top-line figure extractable; no transaction costs stated; exact period not published in abstract</td>
-</tr>
-
-            
+<!-- ── Forex scopus indexed 2026 papers ──────────────────────────────────────── -->            
 <tr>
   <td class="sortable" data-type="text">Uygun et al.(2025) DOI: 10.1007/s00521-025-11586-8</td>
   <td>FX & Crypto</td>
@@ -596,7 +482,321 @@ To propose an additional compliant paper for inclusion, please email the full re
               <td><span class="tag-model">SS Ratio‑optimised GA</span></td>
             </tr>
 
+<!-- ══════════════════════════════════════════════════════════
+     FOREX / FX
+     ══════════════════════════════════════════════════════════ -->
+
+<tr>
+  <td>Arabha, Sarani &amp; Rashidi-Khazaee (2024). arXiv:2411.01456</td>
+  <td>EUR/USD</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>42.22% (DS2 OOS, 7 months)</td>
+  <td>Not given</td>
+  <td>0.47 (DS2 OOS)</td>
+  <td>DS1: Jan–Jul 2017; DS2: Jan–Jul 2023</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>PPO + Auxiliary Task (PPO+AXT); LSTM Actor-Critic; DRL with OHLC + auto-encoder features; qualitative cost mention only; no slippage stated; short OOS windows (7 months each)</td>
+</tr>
+
+<!-- ══════════════════════════════════════════════════════════
+     EQUITIES / INDICES
+     ══════════════════════════════════════════════════════════ -->
+
+<tr>
+  <td>Pillai, Ajith &amp; Sumesh K J (2026). arXiv:2601.19504. Proc. ComSIA 2026 (Springer LNNS)</td>
+  <td>S&amp;P 500 (100 stocks)</td>
+  <td>$100,000</td>
+  <td>$235,492.83</td>
+  <td>53.46% CAGR</td>
+  <td>15.60%</td>
+  <td>1.68</td>
+  <td>Jan 2023 – Jan 2025 (2 years OOS)</td>
+  <td>Not given</td>
+  <td>61.5%</td>
+  <td>Hybrid XGBoost + FinBERT sentiment + EMA/MACD/RSI regime filter; Backtrader simulation; 70/30 train/test split; no transaction costs stated; long-only daily</td>
+</tr>
+
+<tr>
+  <td>Nyo et al. (2026). arXiv:2603.15848. Singapore Institute of Technology</td>
+  <td>S&amp;P 500 (equities)</td>
+  <td>$100,000</td>
+  <td>Not given</td>
+  <td>Not given (189.10% total return on validation 2018–2024)</td>
+  <td>23.50% (validation)</td>
+  <td>2.04 (validation); 2.07 (test)</td>
+  <td>Dev: 2000–2017; Validation: 2018–2024; held-out test set</td>
+  <td>Not given</td>
+  <td>38.50% (validation)</td>
+  <td>Enhanced momentum + FinBERT sentiment; EMA50/200, ATR14 trailing stop, top-10 cross-sectional momentum; strict 3-way train/val/test split; no transaction costs stated; student project paper – treat with caution</td>
+</tr>
+
+<tr>
+  <td>Saly-Kaufmann, Wood, Peter-Calliess &amp; Zohren (2026). arXiv:2603.01820. University of Oxford</td>
+  <td>Multi-asset futures &amp; FX (bonds, commodities, energy, equity indices, FX – 60+ instruments)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>26.32% CAGR (VLSTM, best model)</td>
+  <td>22.90% (VLSTM)</td>
+  <td>2.40 (VLSTM, 2010–2025)</td>
+  <td>2010–2025 (15 years, rolling OOS)</td>
+  <td>Not given (turnover: ~967 ann.)</td>
+  <td>58.8% hit rate (VLSTM)</td>
+  <td>Large-scale benchmark of 16 DL architectures; Sharpe-ratio optimisation objective; rolling OOS; gross returns with breakeven cost analysis per asset; statistically significant vs. passive (HAC t=8.81); Oxford-Man Institute</td>
+</tr>
+
+<tr>
+  <td>Azevedo, Hoegner &amp; Velikov (2024). SSRN:4702406</td>
+  <td>US equities (stock anomaly long-short)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>0.84 net (LSTM, 1 hidden layer)</td>
+  <td>Not given (post-2000 implied)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>LSTM anomaly-based long-short; net Sharpe 0.84 after all frictions; 57% cumulative performance reduction from full cost modelling; transaction costs, post-publication decay, post-decimalization all modelled</td>
+</tr>
+
+<tr>
+  <td>Buchanan &amp; Benhamou (2026). arXiv:2603.14453. Univ. of St Andrews / AI for Alpha – Paris Dauphine</td>
+  <td>Top 30 S&amp;P 500 stocks</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>1.10 (OOS 2019–2025; baseline 0.85)</td>
+  <td>In-sample: 2005–2018; OOS: 2019–2025</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>E-TRENDS LSTM with Sharpe-ratio training loss; 70/15/15 train/val/test split; 2–5 bps round-trip transaction costs modelled; OOS Sharpe +0.25 vs. baseline; no total return or MDD stated</td>
+</tr>
+
+<tr>
+  <td>Cohen, Aiche &amp; Eichel (2025). Entropy (MDPI). DOI: 10.3390/e27060550</td>
+  <td>NASDAQ-100 stocks</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>24.99% avg annual return (best: technical-quarterly framework)</td>
+  <td>Not given</td>
+  <td>1.2967 (technical-quarterly, best model)</td>
+  <td>Jan 2020 – Jan 2025 (5 years, rolling-window OOS)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>ChatGPT-4o semantic intelligence + ML (technical/fundamental/entropy frameworks); top-10 equal-weighted portfolio; cumulative return 573.37% (best); rolling-window OOS retraining; no transaction costs or MDD stated; peer-reviewed MDPI Entropy</td>
+</tr>
+
+<tr>
+  <td>Ghatak, Khaledian et al. (2025). Increase Alpha / Zanista AI. arXiv:2509.16707</td>
+  <td>814 US equities (walk-forward production system)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>26.38% cumulative (Jun 2021 – Jun 2025)</td>
+  <td>3.04%</td>
+  <td>2.54</td>
+  <td>Jun 2021 – Jun 2025 (4-year production walk-forward)</td>
+  <td>8,859</td>
+  <td>56.6%</td>
+  <td>Deep learning (feed-forward + recurrent), six-quarter rolling calibration; production system (not pure academic backtest); trading commissions/slippage not stated; very low MDD 3.04% notable; Zanista AI industry paper</td>
+</tr>
+
+<tr>
+  <td>Holzer, Wang et al. (2024). ACM ICAIF FinRL Contest. arXiv:2501.10709</td>
+  <td>Stock task: DJIA 30 stocks; Crypto task: BTC LOB data</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>63.37% cumulative (stock task, PPO best, Jan 2021 – Dec 2023)</td>
+  <td>Not given</td>
+  <td>1.55 (stock task, PPO); 0.28 (crypto task, ensemble)</td>
+  <td>Stock: Jan 2021 – Dec 2023; Crypto: Apr 7–19 2021 (very short LOB window)</td>
+  <td>Not given</td>
+  <td>Not given (win/loss ratio 1.62 crypto task)</td>
+  <td>PPO, SAC, DDPG ensemble; rolling 30-day training / 5-day test windows; Sortino (stock) 2.44; costs mentioned but no numeric value; crypto window 13 days only; ACM ICAIF competition paper</td>
+</tr>
+
+<!-- ── NEW ROUND 3 EQUITIES ────────────────────────────────── -->
+
+<tr>
+  <td>Hajdini, Nuhiu &amp; Leka (2025). PeerJ Computer Science. DOI: 10.7717/peerj-cs.3630</td>
+  <td>US equities: AAPL, MSFT, AMZN, BAC, NVDA</td>
+  <td>$1,000,000 per security</td>
+  <td>Not given</td>
+  <td>53.87% avg annualised return (LLM-MAS-DRL framework)</td>
+  <td>12.54% avg</td>
+  <td>1.702 avg (LLM-MAS-DRL)</td>
+  <td>Jul 2024 – Jun 2025 (OOS, 12 months)</td>
+  <td>25 avg per security</td>
+  <td>71.30% avg</td>
+  <td>Three-layer LLM multi-agent + DRL framework (market analysis, risk management, execution); 0.1% transaction cost per trade modelled; Sortino, Calmar, CVaR also reported; comparison vs. Buy&amp;Hold and PPO/A3C baselines; peer-reviewed PeerJ Computer Science</td>
+</tr>
+
+<tr>
+  <td>Fan, Liu et al. (2025). ACM ICAIF / DL.ACM. DOI: 10.1145/3766918.3766922</td>
+  <td>Ethereum (ETH) – multi-factor quantitative model</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>97% annualised return (main result, threshold ±1.0)</td>
+  <td>22%</td>
+  <td>2.5 (threshold ±1.0); 2.2 at ±0.5; 2.3 at ±1.5</td>
+  <td>Q4 2024 (Oct–Jan 2025) bull test; Q1 2025 (Jan–Apr 2025) bear test; sensitivity range Oct 2024–Apr 2025</td>
+  <td>Not given (1.7 trades/week at ±1.0)</td>
+  <td>59%</td>
+  <td>ML-driven multi-factor model (RSI, MACD + on-chain gas/active address metrics); Information Ratio 1.2; avg holding period 4.5 days; IC mean 0.12; no transaction costs stated; note: 6-month backtest window is short; bull and bear sub-period tests reported separately</td>
+</tr>
+
+<tr>
+  <td>Huang, Li et al. (2025). arXiv:2502.17493. Novel Loss Function for Deep Learning Stock Trading</td>
+  <td>US stocks (daily rebalancing, public stock data)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>61.73% p.a. (2019–2024 test period)</td>
+  <td>Not given</td>
+  <td>1.18 (2019–2024)</td>
+  <td>Test 1: 2019–2024 (1,340 days); Test 2: 2005–2010 (1,360 days)</td>
+  <td>Not given (daily rebalancing)</td>
+  <td>Not given</td>
+  <td>Return-weighted loss function for deep learning stock selection; 37.61% p.a. on 2005–2010 OOS test (Sharpe 0.97); two disjoint test windows including bear-market 2005–2010; no transaction costs or MDD stated; arXiv preprint 2025</td>
+</tr>
+
+<!-- ══════════════════════════════════════════════════════════
+     CRYPTOCURRENCY
+     ══════════════════════════════════════════════════════════ -->
+
+<tr>
+  <td>Nguyen (2026). arXiv:2602.11708</td>
+  <td>Crypto perpetual swaps (150+ pairs, Binance Futures; top 20 by market cap)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>40.5% annualised (70/30 long-short)</td>
+  <td>12.70%</td>
+  <td>2.41</td>
+  <td>Jan 2022 – Dec 2024 (OOS, 36 months; in-sample Jan–Dec 2021)</td>
+  <td>~142 trades/month portfolio-wide</td>
+  <td>54.2% (bull regime); overall not stated</td>
+  <td>AdaptiveTrend: 6-hour momentum + dynamic trailing stop + Sharpe-based asset selection; 4 bps taker fee + slippage + funding modelled; Sharpe retained &gt;2.0 at 8 bps; strict OOS separation; bootstrap significance tests</td>
+</tr>
+
+<tr>
+  <td>Zarattini, Pagani &amp; Barbon (2025). SSRN:5209907</td>
+  <td>Crypto (Bitcoin + top-20 liquid altcoin rotation)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>+10.8% annualised alpha vs. BTC</td>
+  <td>Not given</td>
+  <td>&gt;1.5</td>
+  <td>2015 onwards (exact end date not stated)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>Ensemble Donchian channel trend models (multi-lookback) + volatility position sizing; rotational portfolio; net-of-fees returns; transaction cost impact assessed; limited metric disclosure – backtest end date not stated</td>
+</tr>
+
+<tr>
+  <td>Jay &amp; Berlanga (2024). SSRN:4987237</td>
+  <td>Cryptocurrency (BTC / crypto market)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>Not given (annualised return reported per model)</td>
+  <td>Reported (model-specific)</td>
+  <td>Reported per model (DQN best profit; LSTM best consistency; RF best drawdown control)</td>
+  <td>Not explicitly stated</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>Benchmarks DQN, LSTM, RF agents on crypto TA indicators; full suite: Total Return, Ann. Return, Volatility, Sharpe, Sortino, MDD, Calmar; no transaction costs stated; no single extractable top-line; exact period not published</td>
+</tr>
+
+<tr>
+  <td>Sattarov &amp; Choi (2024). Nature Scientific Reports. DOI: 10.1038/s41598-024-51408-w</td>
+  <td>Bitcoin (BTC-USD)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>29.93% annualised</td>
+  <td>Not given</td>
+  <td>2.74</td>
+  <td>Training: Oct 2014 – Oct 2018; Test: last 30 days (~720 hrs) within Oct 2018 – Mar 2019</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>M-DQN (Multi-level Deep Q-Network) + Twitter sentiment; 3-module architecture; 1.5% round-trip transaction fee explicitly modelled; caution: test window only 30 days; Nature Scientific Reports (peer-reviewed)</td>
+</tr>
+
+<tr>
+  <td>Nguyen Thi Thu Hoan, Nguyen Ngoc Khang &amp; Pham Van Khanh (2025). Cogent Economics &amp; Finance. DOI: 10.1080/23322039.2025.2594873</td>
+  <td>Bitcoin (BTC-USD)</td>
+  <td>$1,000,000</td>
+  <td>$125,903,751.60</td>
+  <td>Not given (total return: +12,490.38% over Jan 2022 – May 2025)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>Train: Jan 2012 – Dec 2021; Test (OOS): Jan 2022 – May 2025</td>
+  <td>1,240</td>
+  <td>Not given</td>
+  <td>DQN meta-strategy selector (chooses among RSI, SMA Crossover, Bollinger Bands, Momentum-20d, VWAP Reversion); ⚠ No Sharpe or MDD stated; no transaction costs stated; 12,490% return is unvalidated by risk metrics – credibility caution; peer-reviewed journal</td>
+</tr>
+
+<!-- ── NEW ROUND 3 CRYPTOCURRENCY ─────────────────────────── -->
+
+<tr>
+  <td>Ni, Zhang &amp; Fu (2025). arXiv:2412.18202. Autoencoder-CNN-GANs Crypto Strategy</td>
+  <td>Cryptocurrency (BTC, ETH and major crypto assets)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>Not given (outperforms buy-and-hold benchmark)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>Not stated (dataset ends 2024)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>Denoising autoencoder + CNN + GAN pipeline for crypto trading signal generation; outperforms buy-and-hold; Sharpe/return/drawdown numerics not stated in abstract – insufficient for main leaderboard row; listed for transparency</td>
+</tr>
+
+<!-- ══════════════════════════════════════════════════════════
+     COMMODITIES / GOLD
+     ══════════════════════════════════════════════════════════ -->
+
+<!-- ── NEW ROUND 3 COMMODITIES ───────────────────────────── -->
+
+<tr>
+  <td>Al-Waked &amp; Al-Zoubi (2025). IJACSA. DOI: 10.14569/IJACSA.2025.0161181</td>
+  <td>Gold (XAU/USD)</td>
+  <td>Not given</td>
+  <td>Not given (cumulative: 80.21%)</td>
+  <td>27.10% CAGR (PPO + Kalman filtering)</td>
+  <td>0.48%</td>
+  <td>12.10 (PPO + Kalman) ⚠</td>
+  <td>Jan 2017 – Jan 2025 (8 years, hourly data; N=47,304)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>PPO + Kalman filter for noise-resilient DRL trading; Kalman reduces microstructure noise; raw PPO baseline: Sharpe 0.45, CAGR 3.46%; ⚠ Sharpe 12.10 is unusually high – likely driven by very low realised volatility in filtered series and no transaction costs stated; no train/test OOS split stated; IJACSA peer-reviewed</td>
+</tr>
+
+<!-- ══════════════════════════════════════════════════════════
+     SENTIMENT / NLP-BASED
+     ══════════════════════════════════════════════════════════ -->
+
+<!-- ── NEW ROUND 3 SENTIMENT ─────────────────────────────── -->
+
+<tr>
+  <td>Fatouros, Soldatos, Kotronis &amp; Kyriazis (2024). arXiv:2412.19245</td>
+  <td>US common stocks (news-based long-short portfolio)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>3.05 (OPT long-short); 2.11 (BERT); 2.07 (FinBERT)</td>
+  <td>Aug 2021 – Jul 2023 (24 months OOS)</td>
+  <td>Not given</td>
+  <td>Not given</td>
+  <td>Sentiment trading with LLMs (OPT, BERT, FinBERT, Loughran-McDonald); daily long-short strategy on next-day stock returns using news sentiment; Loughran-McDonald baseline Sharpe 1.23; no transaction costs or MDD stated; Sharpe only metric extractable; arXiv preprint 2024</td>
+</tr>
+            
+            
             <!-- Add new rows below this line as you evaluate more papers -->
+
+
+
+
+            
           </tbody>
         </table>
       </div>
